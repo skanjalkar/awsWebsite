@@ -1,3 +1,7 @@
+const ip = "http://44.202.218.202:80/"
+// const ip = "http://localhost:3000"
+
+
 function addTwoNumbers(p1, p2) {
     return parseInt(p1) + parseInt(p2);
   }
@@ -30,7 +34,7 @@ document.getElementById("serverSubmit").addEventListener("click", function(){
   const data = {"first": firstNumber.value, "second": secondNumber.value}
   console.log(data);
 
-  fetch("http://localhost:3000", {
+  fetch(ip, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
