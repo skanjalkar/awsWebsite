@@ -1,4 +1,4 @@
-const ip = "http://44.202.218.202:80/"
+const ip = "http://54.211.139.98/"
 // const ip = "http://localhost:3000"
 
 
@@ -31,7 +31,7 @@ document.getElementById("serverSubmit").addEventListener("click", function(){
   firstNumber = document.getElementById("firstNum");
   // console.log(firstNumber.value)
   secondNumber = document.getElementById("secondNum");
-  const data = {"first": firstNumber.value, "second": secondNumber.value}
+  const data = {"first": firstNumber.value, "second": secondNumber.value, "javascript": true}
   console.log(data);
 
   fetch(ip, {
@@ -41,4 +41,44 @@ document.getElementById("serverSubmit").addEventListener("click", function(){
   }).then((x)=>x.json())
   .then((data)=>createNewElement(data.result, false))
 });
+
+
+document.getElementById("pythonSubmit").addEventListener("click", function(){
+  firstNumber = document.getElementById("firstNum");
+  // console.log(firstNumber.value)
+  secondNumber = document.getElementById("secondNum");
+  const data = {"first": firstNumber.value, "second": secondNumber.value, "javascript": false}
+  console.log(data);
+  const pythonip = ip.concat("python")
+  console.log(pythonip)
+  fetch(pythonip, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  }).then((x)=>x.json())
+  .then((data)=>createNewElement(data.result, false))
+});
+
+
+function displayImage(path){
+  var img = document.createElement('img');
+  img.src = path;
+  img.width = "320";
+  img.height = "320";
+  document.body.appendChild(img);
+}
+
+document.getElementById("swap").addEventListener("click", function(event){
+  event.preventDefault()
+  var form = document.getElementById("form");
+  var formData = new FormData(form);
+  console.log(formData)
+  fetch(ip+"swap", {
+    method: 'POST',
+    body: formData,
+  }).then(function(x){
+    return x.json()
+  })
+  .then((data)=>displayImage(data.op_path));
+})
 }
