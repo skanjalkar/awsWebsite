@@ -46,6 +46,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', today: 'Shreyas' });
 });
 
+router.get('/starter', function(req, res, next){
+  res.render('starter');
+})
+
 router.post('/', function(req, res, next){
   var info = req.body;
   var summation = parseInt(info.first) + parseInt(info.second);

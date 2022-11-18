@@ -1,5 +1,5 @@
-const ip = "http://54.211.139.98/"
-// const ip = "http://localhost:3000"
+// const ip = "http://54.211.139.98/"
+const ip = "http://localhost:3000/"
 
 
 function addTwoNumbers(p1, p2) {
