@@ -131,3 +131,4 @@ dist
 
 myapp/public/images/awsImages/*
 myapp/public/images/awsOutput/*
+myapp/log.txt
